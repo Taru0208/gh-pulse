@@ -5,11 +5,15 @@ const USER_AGENT = 'gh-pulse/0.1.0';
 
 function request(url) {
   return new Promise((resolve, reject) => {
+    const headers = {
+      'User-Agent': USER_AGENT,
+      'Accept': 'application/vnd.github+json',
+    };
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
     const req = https.get(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        'Accept': 'application/vnd.github+json',
-      },
+      headers,
       timeout: 10000,
     }, (res) => {
       let data = '';

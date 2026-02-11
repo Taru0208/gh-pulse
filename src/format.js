@@ -77,7 +77,7 @@ export function formatMarkdown(analysis, { daysBack = 7, language = null } = {})
   lines.push('| Stars | Repo | Language | Description |');
   lines.push('| ---: | --- | --- | --- |');
   for (const r of topRepos) {
-    const desc = r.description.slice(0, 60) + (r.description.length > 60 ? '...' : '');
+    const desc = (r.description || '').slice(0, 60) + ((r.description || '').length > 60 ? '...' : '');
     lines.push(`| ★${r.stars} | [${r.name}](${r.url}) | ${r.language || '-'} | ${desc} |`);
   }
   lines.push('');
