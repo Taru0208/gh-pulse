@@ -1,5 +1,7 @@
 # gh-pulse
 
+![Tests](https://github.com/Taru0208/gh-pulse/actions/workflows/test.yml/badge.svg)
+
 A CLI tool that shows what's trending on GitHub. Searches recent repos by stars, analyzes language distribution, popular topics, and license patterns.
 
 ## Install
